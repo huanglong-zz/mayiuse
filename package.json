@@ -1,6 +1,6 @@
 {
   "name": "mayiuse",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "description": "Detect CSS3 in command line.",
   "dependencies": {
     "cli-color": "~0.2.3",
