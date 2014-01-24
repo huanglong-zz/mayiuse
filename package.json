@@ -1,22 +1,19 @@
 {
-  "name": "showme",
+  "name": "mayiuse",
   "version": "0.1.0",
-  "description": "Detect HTML5, CSS3, SVG and more in command line.",
+  "description": "Detect CSS3 in command line.",
   "dependencies": {
-    "q": "~1.0.0",
-    "mkdirp": "~0.3.5",
-    "commander": "~2.1.0",
     "cli-color": "~0.2.3",
-    "cli-table": "~0.2.0",
-    "debug": "~0.7.4"
+    "cli-table": "~0.2.0"
   },
   "author": "huanglong <banruosheng@gmail.com>",
   "repository":{
       "type": "git",
-      "url": "https://github.com/wuchengwei/caniuse.git"
+      "url": "https://github.com/huanglong/mayiuse.git"
   },
+  "main": "index.js",
   "bin": {
-    "showme": "bin/showme"
+    "mayiuse": "bin/mayiuse"
   },
   "devDependencies": {
     "mocha": "~1.17.0",

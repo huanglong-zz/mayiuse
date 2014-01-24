@@ -1,5 +1,5 @@
-0.0.1 / 2014-01-23
+0.0.1 / 2014-01-24
 ==================
 
  * Support caniuse query
- * --detail
+ * mayiuse svg

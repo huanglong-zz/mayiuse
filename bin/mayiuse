@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+var pkg = require('../package')
+var color = require('cli-color')
+var Query = require('..').Query
+var Update = require('..').Update
+
+function printResult(feature) {
+  var results = Query(feature)
+
+  console.log('Detecting' + '    ' +  feature)
+  console.log(results)
+  console.log(color.redBright('redBright') + '        NOT supported')
+  console.log(color.red('red') + '              NOT supported, but has polyfill available')
+  console.log(color.white('white') + '            unknown')
+  console.log(color.yellowBright('yellowBright') + '     partially supported, and vendor prefixed')
+  console.log(color.yellow('yellow') + '           partially supported')
+  console.log(color.greenBright('greenBright') + '      supported, and vendor prefixed')
+  console.log(color.green('green') + '            supported')
+  process.exit()
+}
+
+function printVersion() {
+  console.log('mayiuse ' + pkg.version)
+  process.exit()
+}
+
+function updateData() {
+  console.log('mayiuse ' + pkg.version)
+  console.log('waiting..... ')
+  Update(function(err) {
+    if (err) {
+      console.log('Ooops! Errors occur!')
+      console.log('Errors: ' + err)
+    }
+    else {
+      console.log('Well done!')
+    }
+
+    process.exit()
+  })
+}
+
+function printHelp(code) {
+  var lines = [
+    '',
+    '  Usage:',
+    '    mayiuse [css3]',
+    '',
+    '  Options:',
+    '    -v, --version             print the version of vc',
+    '    -h, --help                display this message',
+    '    -u, --update              download newest data from Fyrd\'caniuse',
+    '',
+    '  Examples:',
+    '    $ mayiuse svg',
+    ''
+  ]
+
+  console.log(lines.join('\n'))
+  process.exit(code || 0)
+}
+
+
+function main(argv) {
+  if (!argv) {
+    printHelp(1)
+  }
+
+  var getArg = function() {
+    var args = argv.shift()
+
+    args = args.split('=')
+    if (args.length > 1) {
+      argv.unshift(args.slice(1).join('='))
+    }
+    return args[0]
+  }
+
+  var arg
+
+  while (argv.length) {
+    arg = getArg()
+    switch(arg) {
+      case '-v':
+      case '-V':
+      case '--version':
+        printVersion()
+
+        break
+      case '-u':
+      case '-U':
+      case '--update':
+        updateData()
+
+        break
+      case '-h':
+      case '-H':
+      case '--help':
+        printHelp()
+
+        break
+      default:
+        printResult(arg)
+
+        break
+    }
+  }
+}
+
+main(process.argv.slice(2))
+
+module.exports = main

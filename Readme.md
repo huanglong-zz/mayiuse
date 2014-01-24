@@ -1,13 +1,27 @@
-# Showme
+mayiuse
+=======
 
-Command line for caniuse offline.
+Command line npm module for caniuse offline.
 
 ## Install
 
-npm install showme
+npm install mayiuse
 
 ## Status
 
 Works:
 
-- showme border
+- mayiuse border
+
+
+## Data
+
+./data/data.json
+
+update from [Fyrd-caniuse](https://github.com/Fyrd/caniuse/blob/master/data.json)
+
+And update manully by:
+
+```
+mayiuse --update
+```
