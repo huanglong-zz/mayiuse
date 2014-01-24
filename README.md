@@ -11,7 +11,7 @@ npm install mayiuse
 
 Works:
 
-- mayiuse border
+- mayiuse svg
 
 ## Data
 
