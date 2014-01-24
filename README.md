@@ -5,7 +5,7 @@ Command line npm module for caniuse offline.
 
 ## Install
 
-npm install mayiuse
+npm install mayiuse -g
 
 ## Status
 
